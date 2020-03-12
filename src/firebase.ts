@@ -1,13 +1,13 @@
 import * as firebase from 'firebase';
-import { config } from './config.ts';
+import { appConfig } from './config.ts';
 
 const config = {
-  apiKey: config.apiKey,
-  authDomain: config.authDomain,
-  databaseURL: config.databaseURL,
-  projectId: config.projectId,
-  storageBucket: config.storageBucket,
-  messagingSenderId: config.messagingSenderId
+  apiKey: appConfig.apiKey,
+  authDomain: appConfig.authDomain,
+  databaseURL: appConfig.databaseURL,
+  projectId: appConfig.projectId,
+  storageBucket: appConfig.storageBucket,
+  messagingSenderId: appConfig.messagingSenderId
 };
 
 firebase.initializeApp(config);
