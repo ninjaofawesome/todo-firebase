@@ -1,11 +1,10 @@
-import React from 'React';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
 import reducers from './Reducers';
-import App from './Pages/App';
 import * as serviceWorker from './serviceWorker';
 
 interface Window {
@@ -17,6 +16,13 @@ const store = createStore(
 	reducers, 
 	{}, 
 	composeWithDevTools(
-	applyMiddleware(thunk)),
+	applyMiddleware(reduxThunk)),
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <div>Hello World!</div>
+  </Provider>,
+  document.getElementById("root")
 );
 serviceWorker.register();

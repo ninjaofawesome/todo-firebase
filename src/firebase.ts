@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import { appConfig } from './config.ts';
+import { appConfig } from './config';
 
 const config = {
   apiKey: appConfig.apiKey,
