@@ -1,8 +1,8 @@
 import React from 'react';
-import {ListItemWrapper} from './List.styles';
+import {ListItemWrapper} from './ListItem.styles';
 
 const ListItem: React.SFC = () => (
-	<LisItemWrapperr>Hello world</ListItemWrapper>
+	<ListItemWrapper>Hello world</ListItemWrapper>
 );
 
 export default ListItem;
