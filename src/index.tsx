@@ -5,6 +5,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reduxThunk from 'redux-thunk';
 import reducers from './Reducers';
+import App from './Pages/App';
 import * as serviceWorker from './serviceWorker';
 
 interface Window {
@@ -21,7 +22,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>Hello World!</div>
+    <App />
   </Provider>,
   document.getElementById("root")
 );
