@@ -9,6 +9,7 @@ export const completeTodo = (completeTodo: any) => async (dispatch: any) => {
 	todosRef.child(completeTodo).remove();
 };
 
+/* todo: unpack what's going on here, put into MapDispatchToProps in component */
 export const fetchTodos = () => async (dispatch: any) => {
 	todosRef.on('value', snapshot => {
 		dispatch({

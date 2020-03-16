@@ -1,8 +1,31 @@
 import React from 'react';
+import { connect } from 'redux';
+import ListItem from '../ListItem';
 import {ListWrapper} from './List.styles';
 
-const List: React.SFC = () => (
-	<ListWrapper>Hello world</ListWrapper>
+// more tk on this object
+interface ListProps {
+	todos: {
+		title?: string;
+	};
+};
+
+const List: React.SFC<ListProps> = props => (
+	<ListWrapper>
+		{props.todos.map((item: any, index: number) => (
+			<ListItem 
+				key={`listItem-${index}`} 
+				todo={item}
+			/>
+		))}
+	</ListWrapper>
 );
+
+const mapStateToProps = (state: any) => {
+  return {
+    todos: state.todoReducer.todos || [{}],
+  }
+};
+
 
 export default List;
