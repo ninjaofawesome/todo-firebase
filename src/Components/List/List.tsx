@@ -1,13 +1,11 @@
 import React from 'react';
-import { connect } from 'redux';
-import ListItem from '../ListItem';
+import { connect } from 'react-redux';
+import ListItem from './ListItem';
 import {ListWrapper} from './List.styles';
 
 // more tk on this object
 interface ListProps {
-	todos: {
-		title?: string;
-	};
+	todos: any;
 };
 
 const List: React.SFC<ListProps> = props => (
@@ -28,4 +26,4 @@ const mapStateToProps = (state: any) => {
 };
 
 
-export default List;
+export default connect(mapStateToProps)(List);

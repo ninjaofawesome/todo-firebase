@@ -1,23 +1,31 @@
 import React from 'react';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { completeTodo } from '../../../Actions';
 import {ListItemWrapper} from './ListItem.styles';
 
 interface ListItemProps {
-	completeTodo(): any;
-	todo: Object;
+	completeTodo(id: any): any;
+	todo: {
+		title?: string;
+		id?: number;
+	};
 };
 
-class ListItem: React.SFC<ListItemProps> = props => {
-	const { handleComplete, todo } = props;
+const ListItem: React.SFC<ListItemProps> = props => {
+	const { completeTodo, todo } = props;
 	return (
 		<ListItemWrapper>
 			{todo.title}
-			<button onCLick={() => handleComplete(todo.Id)}>
+			<div onClick={() =>completeTodo(todo.id)}>
 				Complete
-			</button>
+			</div>
 		</ListItemWrapper>
 	);
 }
 
-export default connect(null, { completeTodo })(ListItem);
+const mapDispatchToProps = (dispatch: any) => bindActionCreators({
+    completeTodo: (id) => completeTodo(id),
+}, dispatch);
+
+export default connect(null, mapDispatchToProps)(ListItem);
