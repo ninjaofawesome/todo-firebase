@@ -5,7 +5,7 @@ import {ListWrapper} from './List.styles';
 
 // more tk on this object
 interface ListProps {
-	todos: any;
+	todos: Array<Object>;
 };
 
 const List: React.SFC<ListProps> = props => (

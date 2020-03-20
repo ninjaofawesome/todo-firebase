@@ -2,12 +2,18 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { completeTodo } from '../../../Actions';
-import {ListItemWrapper} from './ListItem.styles';
+import {
+	ListItemWrapper,
+	ListItemTitle,
+	ListItemText,
+	ListItemDismiss,
+} from './ListItem.styles';
 
 interface ListItemProps {
 	completeTodo(id: any): any;
 	todo: {
 		title?: string;
+		text?: string;
 		id?: number;
 	};
 };
@@ -16,10 +22,11 @@ const ListItem: React.SFC<ListItemProps> = props => {
 	const { completeTodo, todo } = props;
 	return (
 		<ListItemWrapper>
-			{todo.title}
-			<div onClick={() =>completeTodo(todo.id)}>
+			<ListItemTitle>{todo.title}</ListItemTitle>
+			<ListItemText>{todo.text}</ListItemText>
+			<ListItemDismiss onClick={() =>completeTodo(todo.id)}>
 				Complete
-			</div>
+			</ListItemDismiss>
 		</ListItemWrapper>
 	);
 }
