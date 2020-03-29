@@ -1,8 +1,25 @@
 import React from 'react';
-import {FormWrapper} from './Form.styles';
+import {
+	FormWrapper,
+	TextInputWrapper,
+	SubmitButton
+} from './Form.styles';
 
 const Form: React.SFC = () => (
-	<FormWrapper>Hello world</FormWrapper>
+	<FormWrapper>
+		<TextInputWrapper 
+			name='inputField'
+			type='text'	
+			placeholder='Add a todo'
+			onChange={() => console.log('ch-ch-ch-changes')}
+		/>
+		<SubmitButton 
+			name='submitButton'
+			type='submit'
+			value='Add'		
+			onChange={() => console.log('submitted!')}
+		/>
+	</FormWrapper>
 );
 
 export default Form;
