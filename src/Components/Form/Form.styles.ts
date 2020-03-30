@@ -4,7 +4,7 @@ export const FormWrapper = styled.form`
 	display: block;
 `;
 
-export const TextInputWrapper = styled.input`
+export const TextInputWrapper = styled.div`
 	display: block;
 `;
 
